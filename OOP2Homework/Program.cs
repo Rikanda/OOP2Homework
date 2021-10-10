@@ -13,10 +13,10 @@ namespace OOP2Homework
         static void Main(string[] args)
         {
             BankAccount testAccount = new BankAccount();
-            int number = 1234;
+            
             double balance = 100250.33;
             Type type = Type.Дебетовый;
-            testAccount.InsertNumberAccount(number);
+            testAccount.InsertNumberAccount();
             testAccount.InsertBalanceAccount(balance);
             testAccount.InsertTypeAccount(type);
             testAccount.PrintAccountData();

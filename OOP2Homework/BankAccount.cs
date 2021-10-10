@@ -9,13 +9,15 @@ namespace OOP2Homework
     class BankAccount
     {
 
-        int numberAccount;
+        static int numberAccount = 1000;
         double balanceAccount;
         Type typeAccount;
 
-        public void InsertNumberAccount(int value)
+        
+        public void InsertNumberAccount()
         {
-            numberAccount = value;
+            ++numberAccount;
+            
         }
 
         public void InsertBalanceAccount(double value)
