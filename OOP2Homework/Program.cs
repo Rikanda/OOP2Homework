@@ -12,15 +12,18 @@ namespace OOP2Homework
     {
         static void Main(string[] args)
         {
-            BankAccount testAccount = new BankAccount();
-            
-            double balance = 100250.33;
-            Type type = Type.Дебетовый;
-            testAccount.InsertNumberAccount();
-            testAccount.InsertBalanceAccount(balance);
-            testAccount.InsertTypeAccount(type);
-            testAccount.PrintAccountData();
-            
+            BankAccount testAccount1 = new BankAccount();
+            testAccount1.PrintAccountData();
+
+            BankAccount testAccount2 = new BankAccount(122345.98);
+            testAccount2.PrintAccountData();
+
+            BankAccount testAccount3 = new BankAccount(Type.Накопительный);
+            testAccount3.PrintAccountData();
+
+            BankAccount testAccount4 = new BankAccount(456789.01, Type.Дебетовый);
+            testAccount4.PrintAccountData();
+
         }
     }
 }

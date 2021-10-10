@@ -9,26 +9,44 @@ namespace OOP2Homework
     class BankAccount
     {
 
-        static int numberAccount = 1000;
-        double balanceAccount;
-        Type typeAccount;
+        private static int numberAccount = 1000;
+        private double balanceAccount;
+        private Type typeAccount;
 
+
+        public int InsertNumberAccount()
+        {
+            int n = ++numberAccount;
+            return n;
+
+        }
+
+        // конструктор по умолчанию обращается к конструктору для заполнения поля баланс
+        public BankAccount() : this(100000.56)
+        {
+
+        }
+
+        // конструктор для заполнения поля баланс
+        public BankAccount (double b) : this (b, Type.Кредитовый)
+        {
         
-        public void InsertNumberAccount()
-        {
-            ++numberAccount;
-            
         }
 
-        public void InsertBalanceAccount(double value)
+        // конструктор для заполнения поля тип банковского счета
+        public BankAccount(Type t) : this (100000.56, t)
         {
-            balanceAccount = value;
+
         }
 
-        public void InsertTypeAccount (Type value)
+        // конструктор для заполнения баланса и типа банковского счета
+        public BankAccount(double b, Type t)
         {
-            typeAccount = value;
+            numberAccount = this.InsertNumberAccount();
+            balanceAccount = b;
+            typeAccount = t;
         }
+
 
         public void PrintAccountData ()
         {
