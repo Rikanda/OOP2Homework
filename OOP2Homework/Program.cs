@@ -10,19 +10,69 @@ namespace OOP2Homework
     }
     class Program
     {
+        public static void Test(TestCase testCase)
+        {
+            try
+            {
+                var actual = GenerationAccount(testCase.N, testCase.B, testCase.T);
+                if (actual == testCase.Expected)
+                {
+                    Console.WriteLine("VALID TEST");
+                }
+                else
+                {
+                    Console.WriteLine("INVALID TEST");
+                }
+            }
+            catch (Exception)
+            {
+                if (testCase.ExpectedException != null)
+                {
+                    Console.WriteLine("VALID TEST");
+                }
+                else
+                {
+                    Console.WriteLine("INVALID TEST");
+                }
+            }
+
+        }
+
+        public static string GenerationAccount (int n, double b, Type t)
+        {
+            BankAccount testAccount = new BankAccount()
+            {
+                NumberAccount = n,
+                BalanceAccount = b,
+                TypeAccount = t
+                
+            };
+
+            string test = testAccount.NumberAccount.ToString() +
+                testAccount.BalanceAccount.ToString() + testAccount.TypeAccount.ToString();
+
+            testAccount.PrintAccountData();
+            return test;
+
+        }
         static void Main(string[] args)
         {
-            BankAccount testAccount1 = new BankAccount();
-            testAccount1.PrintAccountData();
+            int value1 = 2001;
+            double value2 = 1000000.55;
+            Type value3 = Type.Накопительный;
+            string all = value1.ToString() + value2.ToString() + value3.ToString();
 
-            BankAccount testAccount2 = new BankAccount(122345.98);
-            testAccount2.PrintAccountData();
+            var testCase = new TestCase()
+            {
+                N = value1,
+                B = value2,
+                T = value3,
+                Expected = all,
+                ExpectedException = null
+            };
 
-            BankAccount testAccount3 = new BankAccount(Type.Накопительный);
-            testAccount3.PrintAccountData();
+            Test(testCase);
 
-            BankAccount testAccount4 = new BankAccount(456789.01, Type.Дебетовый);
-            testAccount4.PrintAccountData();
 
         }
     }
