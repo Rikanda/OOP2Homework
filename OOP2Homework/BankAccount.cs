@@ -55,6 +55,30 @@ namespace OOP2Homework
             }
 
         }
+
+        // добавление на счет
+        public void AddToAccount(double summ)
+        {
+            this.BalanceAccount = balanceAccount + summ;
+            Console.WriteLine("Ваш счет увеличен на " + summ + ", " +
+                "общая сумма по счету теперь составляет " + this.balanceAccount);
+        }
+
+        // снятие со счета
+        public void Withdraw(double summ)
+        {
+            if(summ>this.balanceAccount)
+            {
+                Console.WriteLine("Снятие невозможно, поскольку запрошенная сумма больше остатка по счету");
+            }
+            else
+            {
+                this.BalanceAccount = balanceAccount - summ;
+                Console.WriteLine("Ваш счет уменьшен на " + summ + ", " +
+                "общая сумма по счету теперь составляет " + this.balanceAccount);
+            }
+        }
+
         public void PrintAccountData ()
         {
             Console.WriteLine("Номер счета: " + numberAccount + "; Баланс счета: " 

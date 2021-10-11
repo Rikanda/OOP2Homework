@@ -1,4 +1,9 @@
 ﻿using System;
+using System.Globalization;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace OOP2Homework
 {
@@ -72,6 +77,23 @@ namespace OOP2Homework
             };
 
             Test(testCase);
+
+            BankAccount newAccount = new BankAccount()
+            {
+                NumberAccount = value1,
+                BalanceAccount = value2,
+                TypeAccount = value3
+
+            };
+
+
+            Console.WriteLine($"Баланс счета {newAccount.BalanceAccount}.  Укажите сумму добавления на счет:");
+            double s = double.Parse(Console.ReadLine());
+            newAccount.AddToAccount(s);
+
+            Console.WriteLine($"Баланс счета {newAccount.BalanceAccount}.  Укажите сумму снятия со счета:");
+            double s1 = double.Parse(Console.ReadLine());
+            newAccount.Withdraw(s1);
 
 
         }
